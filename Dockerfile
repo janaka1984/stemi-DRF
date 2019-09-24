@@ -7,7 +7,7 @@ RUN mkdir /code
 WORKDIR /code
 COPY . /code/
 
-RUN pip install -r stemirestapi/requirments.txt
+RUN pip install -r ./requirments.txt
 
 EXPOSE 80
 
