@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import CaseType, CaseTypeDetail, File
+from .models import CaseType, CaseTypeDetail, File, Hospital
 
 
 class CaseTypeSerializer(serializers.ModelSerializer):
@@ -17,4 +17,9 @@ class CaseTypeDetailSerializer(serializers.ModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
+        fields = "__all__"
+
+class HospitalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Hospital
         fields = "__all__"

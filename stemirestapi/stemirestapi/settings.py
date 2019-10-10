@@ -30,7 +30,8 @@ SECRET_KEY = ')uty4v^om8v3#j=_wpcf=hx6hau&42iyiry(@9=*pr6tbpz8&s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.8.102']
+#ALLOWED_HOSTS = []
 
 MEDIA_URL =  '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

@@ -2,11 +2,17 @@ from django.db import models
 
 class CaseType(models.Model):
 
-        casetypeid = models.CharField(max_length=50, null=False);
+        HospitalId = models.CharField(max_length=50, null=False);
 
-        casetypename = models.CharField(max_length=50, null=False);
+        RoleId = models.CharField(max_length=50, null=False);
 
-        createddatetime = models.DateTimeField(max_length=50, null=False);
+        CaseTypeId = models.CharField(max_length=50, null=False);
+
+        CaseTypeName = models.CharField(max_length=50, null=False);
+
+        Forward = models.CharField(max_length=50, null=False);
+
+        CreatedDateTime = models.DateTimeField(max_length=50, null=False);
 
         class Meta:
             db_table = "CaseType"
@@ -20,21 +26,28 @@ class CaseType(models.Model):
 
 class CaseTypeDetail(models.Model):
 
-        casetypedetailid = models.CharField(max_length=50, null=False);
+        HospitalId = models.CharField(max_length=50, null=False);
 
-        casetypedetailname = models.CharField(max_length=50, null=False);
+        RoleId = models.CharField(max_length=50, null=False);
 
-        displaymsg = models.CharField(max_length=250, null=False);
+        CaseTypeDetailId = models.CharField(max_length=50, null=False);
 
-        displaysubmsg = models.CharField(max_length=250, null=False);
+        CaseTypeDetailName = models.CharField(max_length=50, null=False);
 
-        filepath = models.CharField(max_length=250, null=True);
+        DisplayMsg = models.CharField(max_length=250, null=False);
 
-        isplaying= models.BooleanField(max_length=4, null=False);
+        DisplaySubMsg = models.CharField(max_length=250, null=True);
 
-        file = models.FileField(blank=False, null=True)
+        FilePath = models.CharField(max_length=250, null=True);
 
-        createddatetime = models.DateTimeField(max_length=50, null=False);
+        IsPlaying= models.BooleanField(max_length=4, null=False);
+
+        #File = models.FileField(max_length=1000, null=True)
+        File = models.FileField(blank=False, null=True)
+
+        BLOBFile = models.BinaryField(blank=False, null=False)
+
+        CreatedDateTime = models.DateTimeField(max_length=50, null=False);
 
         class Meta:
             db_table = "CaseTypeDetail"
@@ -45,10 +58,25 @@ class CaseTypeDetail(models.Model):
             return self.casetypeid
 
 class File(models.Model):
-    file = models.FileField(blank=False, null=False)
+    File = models.FileField(blank=False, null=False)
 
     class Meta:
         db_table = "File"
 
     def __str__(self):
         return self.file.name
+
+class Hospital(models.Model):
+    HospitalId = models.CharField(max_length=50, null=False);
+
+    HospitalName = models.CharField(max_length=50, null=False);
+
+    CreatedDateTime = models.DateTimeField(max_length=50, null=False);
+
+    class Meta:
+        db_table = "Hospital"
+        verbose_name = "Hospital"
+        verbose_name_plural = "Hospitals"
+
+    def __unicode__(self):
+        return self.hospitalid
