@@ -10,7 +10,9 @@ class CaseType(models.Model):
 
         CaseTypeName = models.CharField(max_length=50, null=False);
 
-        Forward = models.CharField(max_length=50, null=False);
+        Source = models.CharField(max_length=50, null=False);
+
+        Destination = models.CharField(max_length=50, null=False);
 
         CreatedDateTime = models.DateTimeField(max_length=50, null=False);
 

@@ -24,9 +24,9 @@ class ListCaseTypeView(generics.ListAPIView):
         """ allow rest api to filter by submissions """
         queryset = CaseType.objects.all()
         hospital_id = self.request.query_params.get('hospitalid', None)
-        forward = self.request.query_params.get('forward', None)
+        dest = self.request.query_params.get('dest', None)
         if hospital_id is not None:
-            queryset = queryset.filter(HospitalId = hospital_id, Forward = forward)
+            queryset = queryset.filter(HospitalId = hospital_id, Destination = dest)
 
         return queryset
 
